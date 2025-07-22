@@ -11,7 +11,6 @@ set(LIBRARY_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
 SET(CMAKE_MODULE_PATH "${CMAKE_MODULE_PATH};${CMAKE_CURRENT_SOURCE_DIR}/cmake")
 
-include_directories(include)
 
 if(MSVC)
 	#add_compile_options(/O2) # conflict with CI /0d (not optimized)
@@ -549,7 +548,7 @@ if (CMAKE_C_COMPILER_ID MATCHES "MSVC")
 endif()
 
 add_library(gmssl ${src})
-
+target_include_directories(gmssl PUBLIC include)
 
 
 
